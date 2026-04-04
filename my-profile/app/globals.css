@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f172a;
-  --foreground: #f8fafc;
+  --background: #fdfbf7;
+  --foreground: #111827;
 }
 
 @theme inline {
@@ -10,24 +10,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
-  --animate-spin-slow: spin 8s linear infinite;
-  --animate-pulse-slow: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse-slow {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.05);
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   min-height: 100vh;
+}
+
+::selection {
+  background: #f472b6; /* 핑크 포인트 */
+  color: #111827; 
 }

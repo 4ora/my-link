@@ -1,98 +1,90 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="min-h-screen relative overflow-hidden bg-[#0f172a] text-slate-100 font-sans flex flex-col items-center justify-center py-16 px-4 selection:bg-fuchsia-500/30">
-      
-      {/* Background Animated Gradients */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] max-h-[500px] max-w-[500px] bg-fuchsia-600/30 rounded-full blur-[100px] animate-pulse-slow"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] max-h-[500px] max-w-[500px] bg-blue-600/30 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: "2s" }}></div>
-      <div className="absolute top-[40%] left-[60%] w-[40%] h-[40%] max-h-[400px] max-w-[400px] bg-cyan-500/20 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: "4s" }}></div>
-
-      <main className="relative z-10 w-full max-w-sm md:max-w-md flex flex-col items-center">
+    <div className="min-h-screen bg-[#FDFBF7] font-sans p-6 md:p-12 lg:p-20 text-gray-900 selection:bg-pink-400 selection:text-black">
+      <main className="max-w-7xl mx-auto flex flex-col gap-8 md:gap-12">
         
-        {/* Glassmorphism Profile Card */}
-        <div className="w-full bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-[2rem] shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] p-8 flex flex-col items-center gap-8 text-center transition-all duration-500 hover:shadow-[0_8px_48px_0_rgba(0,0,0,0.6)] hover:bg-white/[0.05]">
-          
-          {/* Profile Image with Animated Gradient Ring */}
-          <div className="relative group perspective">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-fuchsia-500 to-cyan-500 blur-md opacity-70 group-hover:opacity-100 animate-spin-slow transition-opacity duration-500"></div>
-            <div className="relative w-36 h-36 rounded-full p-1 bg-gradient-to-tr from-fuchsia-500 via-blue-500 to-cyan-500">
-              <div className="w-full h-full rounded-full overflow-hidden bg-[#0f172a] border-2 border-transparent">
-                <Image
-                  src="/profile.png"
-                  alt="조보라 프로필 이미지"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  priority
-                />
-              </div>
-            </div>
+        {/* 네오 브루탈리즘 내비/헤더 영역 */}
+        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b-4 border-black pb-4 gap-4 sm:gap-0">
+          <div className="text-3xl font-black tracking-tighter uppercase">Vibe.</div>
+          <div className="text-xl font-bold bg-yellow-400 border-2 border-black px-4 py-2 shadow-[4px_4px_0_0_rgba(0,0,0,1)] -rotate-2">
+            Student Profile
           </div>
+        </header>
 
-          {/* Texts */}
-          <div className="space-y-4 w-full">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 text-transparent bg-clip-text">
-              조보라
+        {/* Bento Grid 메인 구조 */}
+        {/* 모바일 1열, 태블릿 2열, 데스크탑 3열~4열 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 auto-rows-[minmax(200px,auto)]">
+          
+          {/* 1. Hero / Name 박스 (크게 차지) */}
+          <section className="col-span-1 md:col-span-2 lg:col-span-2 xl:col-span-2 row-span-2 bg-pink-400 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 md:p-12 flex flex-col justify-center items-start transition-transform hover:-translate-y-2 hover:shadow-[12px_12px_0_0_rgba(0,0,0,1)]">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-none mb-6">
+              조보라<br/>
+              Bo-ra
             </h1>
-            <p className="text-base md:text-lg text-slate-300 font-medium leading-relaxed max-w-sm mx-auto">
-              안녕하세요! 바이브 코딩을 배우고 있는 대학생입니다. 🚀
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold border-2 border-black bg-white px-4 py-2 inline-block shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+              Creative Thinker & Maker
             </p>
-          </div>
-          
-          {/* Divider */}
-          <div className="w-full h-px border-none bg-gradient-to-r from-transparent via-white/20 to-transparent my-2" />
+          </section>
 
-          {/* Links */}
-          <div className="flex flex-col gap-4 w-full">
+          {/* 2. About Me 박스 */}
+          <section className="col-span-1 lg:col-span-1 xl:col-span-2 row-span-1 bg-yellow-300 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-6 md:p-8 transition-transform hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(0,0,0,1)] flex flex-col justify-center">
+            <h2 className="text-2xl font-black uppercase mb-4 underline decoration-4 underline-offset-4">About Me</h2>
+            <p className="text-lg md:text-xl font-bold leading-relaxed">
+              안녕하세요! AI와 대화하며 코딩하는(Vibe Coding) 의류학과 대학생 조보라입니다. 로직보다 느낌으로 코딩을 즐기며, 트렌디한 패션과 반짝이는 발상을 사랑합니다. 🚀
+            </p>
+          </section>
+
+          {/* 3. Tech Stack 박스 */}
+          <section className="col-span-1 md:col-span-1 row-span-1 bg-green-400 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-6 md:p-8 flex flex-col justify-between transition-transform hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(0,0,0,1)]">
+            <h2 className="text-2xl font-black uppercase mb-4">Tech Stack</h2>
+            <div className="flex flex-wrap gap-3 mt-auto">
+              {["ChatGPT", "Claude", "Cursor", "Next.js", "TailwindCSS"].map((tech) => (
+                <span key={tech} className="bg-white border-2 border-black font-black px-3 py-1.5 shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:bg-black hover:text-white transition-colors cursor-default">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          {/* 4. Social Links 박스 */}
+          <section className="col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-1 row-span-1 border-4 border-black bg-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-6 md:p-8 flex flex-col gap-4 justify-center">
+            <h2 className="text-2xl font-black uppercase mb-2">Connect</h2>
             <a
               href="https://www.instagram.com/4ora_/"
               target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-4 w-full px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_-8px_rgba(217,70,239,0.5)]"
+              rel="noreferrer"
+              className="flex items-center gap-4 bg-orange-400 border-4 border-black py-4 px-6 font-black text-lg md:text-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 hover:-translate-y-1 transition-all"
             >
-              <div className="flex items-center gap-4">
-                <div className="p-2.5 bg-gradient-to-br from-fuchsia-500 to-orange-500 rounded-xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                  </svg>
-                </div>
-                <span className="font-semibold text-base md:text-lg text-slate-200 group-hover:text-white transition-colors">Instagram</span>
-              </div>
-              
-              <div className="opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
+              Instagram @4ora_
             </a>
-            
             <a
-              href="#"
-              className="group flex items-center justify-between gap-4 w-full px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_-8px_rgba(59,130,246,0.5)]"
+              href="https://www.youtube.com/@4ora_"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-4 bg-red-500 text-white border-4 border-black py-4 px-6 font-black text-lg md:text-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 hover:-translate-y-1 transition-all"
             >
-              <div className="flex items-center gap-4">
-                <div className="p-2.5 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                    <path d="M9 18c-4.51 2-5-2-7-2"/>
-                  </svg>
-                </div>
-                <span className="font-semibold text-base md:text-lg text-slate-200 group-hover:text-white transition-colors">GitHub</span>
-              </div>
-              <div className="opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
+              YouTube
             </a>
-          </div>
+            <a
+              href="https://blog.naver.com/4vely_"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-4 bg-green-500 text-white border-4 border-black py-4 px-6 font-black text-lg md:text-xl shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 hover:-translate-y-1 transition-all"
+            >
+              Naver Blog
+            </a>
+          </section>
 
         </div>
+        
+        {/* Footer Area */}
+        <footer className="mt-12 md:mt-24 border-t-4 border-black pt-8 flex flex-col sm:flex-row justify-between items-center font-bold gap-4 sm:gap-0">
+          <p className="border-b-2 border-black border-dashed">Built with ❤️ and AI.</p>
+          <div className="bg-black text-white px-4 py-2 shadow-[4px_4px_0_0_#f472b6]">
+            2026 © Jo Bo-ra
+          </div>
+        </footer>
+
       </main>
     </div>
   );
